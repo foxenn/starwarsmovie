@@ -498,3 +498,6 @@ Page Not Found Template Styles
   font-size: 1.20em;
   letter-spacing: 0.4px;
 }
+.navbar-right{
+	margin-right: 20px;
+}

@@ -37,6 +37,7 @@ exports.movie = function(req, res){
 	else{
 		res.send('movie not_found');
 	}
+	
 };
 
 exports.not_found = function(req, res){
