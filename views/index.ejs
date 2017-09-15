@@ -11,9 +11,9 @@
 		<% movies.forEach(function(movie){ %>
 
 		<div class="poster">
-
-			<img style= "width: 100%;" src="/cssfiles/images/<%= movie.poster %>" class="img-responsive"> 
-
+			<a href="starwarsepisode/<%= movie.episode_number %>">
+				<img src="/cssfiles/images/<%= movie.poster %>" class="img-responsive"> 
+			</a>
 		</div> 
 
 		<% }) %>

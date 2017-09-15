@@ -1,25 +1,38 @@
 <% include partials/header %>
 
-	<div id="hero-image-single">
+	<div id="hero-image-single" style="background-image: url('/cssfiles/images/<%= movie.hero_image %>');">
 
 		<h1 id="hero-title"> <%= title %> </h1>
 		
 	</div>
 	
-	<!-- <div class="content-padding clearfix" id="posters-wrapper">
+	<div class="content-padding clearfix">
 
-		<% movies.forEach(function(movie){ %>
+		
 
 		<div class="poster">
-
-			<img style= "width: 100%;" src="/cssfiles/images/<%= movie.poster %>" class="img-responsive"> 
-
+				<img style= "width: 100%;" src="/cssfiles/images/<%= movie.poster %>" class="img-responsive"> 
 		</div> 
 
-		<% }) %>
+		<div class="description-wrapper">
+			<div class="description">
+				<h2 class="movie-header">Description</h2>
+				<p><%= movie.description %></p>
+			</div>
+			<div class="main-characters">
+				<h2 class="movie-header">Main Characters</h2>
+				<ul>
+					<% mainCharacters.forEach(function(char){ %>
+						
+						<li><%= char %></li>
+
+					<% }) %>
+				</ul>
+			</div>
+		</div>
 
 	</div>
- -->
+
 
 
 <% include partials/footer %>

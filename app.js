@@ -40,7 +40,4 @@ app.get('*', routes.not_found);
 
 //server
 
-app.listen(8080, function(err){
-	if (err) throw err;
-	console.log('server started on port 8080');
-})
+app.listen(process.env.PORT || 8080);

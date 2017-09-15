@@ -19,15 +19,24 @@ exports.movie = function(req, res){
 
 	var movies = moviesJSON.movies;
 
-	var movie = movies[episode_number];
+	if (episode_number >= 1 && episode_number <= 6) {
 
-	var title = movie.title;
+		var movie = movies[episode_number - 1];
 
-	res.render('movie_single', {
-		movies: movies,
-		title: title
-	});
-	
+		var title = movie.title;
+
+		var mainCharacters = movie.main_characters;
+
+		res.render('movie_single', {
+			movies: movies,
+			title: title,
+			movie: movie,
+			mainCharacters: mainCharacters
+		});
+	}
+	else{
+		res.send('movie not_found');
+	}
 };
 
 exports.not_found = function(req, res){
