@@ -4,9 +4,13 @@ var express = require('express');
 
 var path = require('path');
 
+var bodyParser = require('body-parser');
+
 var app = express();
 
 var routes = require('./routes/route.js');
+
+
 
 //database
 
@@ -24,6 +28,12 @@ db.once('open', function(){
 	console.log('connection with mongodb');
 });
 
+
+//middlewares
+
+app.use(bodyParser.json());
+
+app.use(bodyParser.urlencoded({extended: false}));
 
 // ..view engine
 
@@ -48,14 +58,11 @@ app.get('/', routes.home);
 
 app.get('/starwarsepisode/:episode_number?', routes.movie);
 
-app.get('/articles', routes.articles );
+app.get('/articles', routes.articles);
 
-app.post('/articles', function(req, res){
-
-	
+app.post('/articles', routes.articles_save);
 
 
-});
 
 //server
 

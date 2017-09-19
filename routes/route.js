@@ -21,6 +21,23 @@ exports.articles = function(req, res){
 };
 
 
+exports.articles_save = function(req, res){
+	let article = new Article;
+
+	article.title= req.body.name;
+	article.author= req.body.city;
+	article.body= req.body.state;
+
+	article.save(function(err){
+		if (err) {
+			console.log(err);
+		}else{
+			res.redirect('/articles');
+		}
+	});
+};
+
+
 
 exports.movie = function(req, res){
 
