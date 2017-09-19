@@ -1,4 +1,3 @@
-
 var moviesJSON = require('../movies.json');
 
 
@@ -11,6 +10,16 @@ exports.home = function(req, res){
 		movies: movies
 	});
 };
+
+let Article = require('../models/article');
+
+exports.articles = function(req, res){
+	Article.find({}, function(err, articles){
+		console.log(articles);
+		res.render('articles');
+	});
+};
+
 
 
 exports.movie = function(req, res){
@@ -37,9 +46,14 @@ exports.movie = function(req, res){
 	else{
 		res.send('movie not_found');
 	}
-	
+
 };
 
 exports.not_found = function(req, res){
 	res.send('Not found');
 };
+
+
+
+
+
